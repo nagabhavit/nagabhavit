@@ -260,8 +260,8 @@ def telemetry(stats: dict | None) -> str:
         weekly = stats["weekly"][-53:]
         peak = max(max(weekly), 1)
         pts = [(sx + 8 + i * (sw - 16) / max(len(weekly) - 1, 1),
-                sy + sh - 18 - (v / peak) * (sh - 48)) for i, v in enumerate(weekly)]
-        trace = smooth(pts, floor=sy + sh - 18)
+                sy + sh - 30 - (v / peak) * (sh - 60)) for i, v in enumerate(weekly)]
+        trace = smooth(pts, floor=sy + sh - 30)
         scale = f"peak {peak}/wk"
         readouts = [
             ("CONTRIBUTIONS · 1Y", f"{stats['total']:,}", AMBER),
